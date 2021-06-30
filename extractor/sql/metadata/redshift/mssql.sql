@@ -23,7 +23,7 @@ SELECT @custom_primary_key = coalesce(substring(@custom_primary_key_var,5,len(@c
 SELECT * 
 FROM (
 	SELECT
-		-2 AS ordinal_position,
+		999 AS ordinal_position,
  		'convert(varchar,getdate(), 120)' + ' AS etl_load_date'  AS fields,
    	    'convert(varchar,getdate(), 120)' AS casting,
 		'datetime' AS field_type,
