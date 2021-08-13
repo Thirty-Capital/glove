@@ -305,7 +305,7 @@ public class GoogleSheetsApi {
                         .spreadsheets()
                         .values()
                         .append(this.spreadsheet.getSpreadsheetId(), rangeStart + ":" + rangeEnd, body)
-                        .setValueInputOption("USER_ENTERED")
+                        .setValueInputOption("RAW")
                         .execute();
 
                 retry = false;
