@@ -69,6 +69,7 @@ public class GoogleSheetsApi {
 
     private final String sheetName;
     private final boolean debug;
+    private final String inputOption;
     private Sheets service;
     private Spreadsheet spreadsheet;
 
@@ -76,10 +77,13 @@ public class GoogleSheetsApi {
      * Credentials file.
      *
      * @param sheetName
+     * @param debug
+     * @param inputOption
      */
-    public GoogleSheetsApi(String sheetName, boolean debug) {
+    public GoogleSheetsApi(String sheetName, boolean debug, String inputOption) {
         this.sheetName = sheetName;
         this.debug = debug;
+        this.inputOption = inputOption;
     }
 
     /**
@@ -265,7 +269,7 @@ public class GoogleSheetsApi {
                     .spreadsheets()
                     .values()
                     .update(this.spreadsheet.getSpreadsheetId(), rangeStart + ":" + rangeEnd, body)
-                    .setValueInputOption("USER_ENTERED")
+                    .setValueInputOption(this.inputOption)
                     .execute();
 
         } catch (IOException ex) {
@@ -305,7 +309,7 @@ public class GoogleSheetsApi {
                         .spreadsheets()
                         .values()
                         .append(this.spreadsheet.getSpreadsheetId(), rangeStart + ":" + rangeEnd, body)
-                        .setValueInputOption("RAW")
+                        .setValueInputOption(this.inputOption)
                         .execute();
 
                 retry = false;

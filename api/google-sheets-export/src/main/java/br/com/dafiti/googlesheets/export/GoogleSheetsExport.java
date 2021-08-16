@@ -78,7 +78,8 @@ public class GoogleSheetsExport {
                 .addParameter("de", "delimiter", "(Optional) Delimiter, default is semicolon(;) ", ";")
                 .addParameter("q", "quote", "(Optional) Quote, default is double quotes(\") ", "\"")
                 .addParameter("qe", "quote_escape", "(Optional) Quote Escaoe, default is double quotes(\") ", "\"")
-                .addParameter("t", "timeout", "(Optional) Read and connect timeout; 6 is default", "6");
+                .addParameter("t", "timeout", "(Optional) Read and connect timeout; 6 is default", "6")
+                .addParameter("io", "input_option", "(Optional) Determines how input data should be interpreted; USER_ENTERED is default", "USER_ENTERED");
 
         //Read the command line interface. 
         CommandLineInterface cli = mitt.getCommandLineInterface(args);
@@ -88,7 +89,7 @@ public class GoogleSheetsExport {
 
             //Define spreadsheet API manager.
             GoogleSheetsApi api
-                    = new GoogleSheetsApi(cli.getParameter("sheet"), cli.getParameterAsInteger("debug") == 1)
+                    = new GoogleSheetsApi(cli.getParameter("sheet"), cli.getParameterAsInteger("debug") == 1, cli.getParameter("input_option"))
                             .authenticate(cli.getParameter("credentials"), cli.getParameter("spreadsheet"), cli.getParameterAsInteger("timeout"));
 
             //Define the input file.
@@ -118,6 +119,7 @@ public class GoogleSheetsExport {
 
                 //Identify if sheet was found.
                 if (sheet.getId() >= 0) {
+                    System.out.println("Input option: [" + cli.getParameter("input_option") + "]");
 
                     //Identify if should remove unused columns.
                     if (sheet.getColumnCount() > inputDimension.columnCount()) {
