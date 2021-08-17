@@ -724,7 +724,8 @@ if [ ${QUEUE_FILE_COUNT} -gt 0 ]; then
 					--sheet=${EXPORT_SHEET} \
 					--method=${EXPORT_SHEETS_METHOD} \
 					--debug=${DEBUG} \
-					--delimiter=${DELIMITER}"
+					--delimiter=${DELIMITER}" \
+					--input_option=${EXPORT_SHEETS_INPUT_OPTION}
 				fi
 
 				# Exporta resultset para uma planilha do Google Sheets.
@@ -735,7 +736,8 @@ if [ ${QUEUE_FILE_COUNT} -gt 0 ]; then
 					--sheet=${EXPORT_SHEET} \
 					--method=${EXPORT_SHEETS_METHOD} \
 					--debug=${DEBUG} \
-					--delimiter=${DELIMITER}
+					--delimiter=${DELIMITER} \
+					--input_option=${EXPORT_SHEETS_INPUT_OPTION}
 				error_check
 			else
 				echo "EXPORT_BUCKET_DEFAULT or EXPORT_SPREADSHEET_DEFAULT was not defined!"

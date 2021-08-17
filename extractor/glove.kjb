@@ -82,6 +82,11 @@
       <description>Identifica o perfil do S3 que será utilizado na exportação dos dados.</description>
     </parameter>
     <parameter>
+      <name>EXPORT_SHEETS_INPUT_OPTION</name>
+      <default_value>USER_ENTERED</default_value>
+      <description>Identifica como os dados de entrada na planilha devem ser interpretados.</description>
+    </parameter>
+    <parameter>
       <name>EXPORT_SHEETS_METHOD</name>
       <default_value>0</default_value>
       <description>Identifica o tipo de atualização da planilha [0: FULL, 1:APPEND]</description>
