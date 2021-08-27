@@ -69,13 +69,11 @@ public class Blue {
 	    // Defines parameters.
 	    mitt.getConfiguration().addParameter("c", "credentials", "Credentials file", "", true, false)
 		    .addParameter("o", "output", "Output file", "", true, false)
-		    .addParameter("f", "field", "Fields to be retrieved from an endpoint in JsonPath fashion", "", true,
-			    false)
+		    .addParameter("f", "field", "Fields to be retrieved from an endpoint in JsonPath fashion", "", true, false)
 		    .addParameter("a", "app", "App name", "", true, false)
 		    .addParameter("ci", "campaign", "(Optional) Campaign ID", "")
 		    .addParameter("d", "date", "(Optional) Campaign date", "")
-		    .addParameter("pt", "partition", "(Optional)  Partition, divided by + if has more than one field",
-			    "")
+		    .addParameter("pt", "partition", "(Optional)  Partition, divided by + if has more than one field", "")
 		    .addParameter("k", "key", "(Optional) Unique key, divided by + if has more than one field", "");
 
 	    // Reads the command line interface.
