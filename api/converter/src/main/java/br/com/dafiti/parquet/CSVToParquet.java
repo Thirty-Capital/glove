@@ -430,6 +430,7 @@ public class CSVToParquet implements Runnable {
         parserSettings.getFormat().setDelimiter(delimiter);
         parserSettings.getFormat().setQuote(quote);
         parserSettings.getFormat().setQuoteEscape(quoteEscape);
+        parserSettings.getFormat().setLineSeparator("\r\n");
 
         //Define the input buffer.
         parserSettings.setInputBufferSize(2 * (1024 * 1024));
