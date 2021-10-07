@@ -54,7 +54,7 @@ public class FileLastModified implements Transformable {
                 lastModified = DateTimeFormatter
                         .ofPattern("yyyy-MM-dd HH:mm:ss")
                         .withZone(ZoneId.systemDefault())
-                        .format(fileAttributes.lastAccessTime().toInstant());
+                        .format(fileAttributes.lastModifiedTime().toInstant());
             }
         }
 
